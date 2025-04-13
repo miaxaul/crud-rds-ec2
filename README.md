@@ -1,13 +1,54 @@
-# crud-RDS-EC2
-deploy database use RDS to IP Public from ec2
+# 🔧 Deploy MySQL RDS via EC2 (Public IP)
 
+Project catatan simpel untuk deploy database MySQL di Amazon RDS dan diakses dari EC2 Ubuntu dengan IP publik. Cocok buat latihan cloud computing dasar.
 
- buat VPC yang terdapat subnet public
- buat instance di EC2 dengan AMI ubuntu
- setting network dengan VPC IP public, Security Group add rule ssh, http, dan mysql
- buat RDS MySQL pilih free tiar dan matikan enable backup untuk mengurangi biaya pemakaian
- connect ec2 agar masuk ke ubuntu dengan ssh
+---
 
+## 👤 Author
+by `Brieliana-miaxaul` 
+
+---
+
+## 📌 Yang Dilakukan
+
+- Bikin VPC + Subnet publik
+- Launch EC2 (Ubuntu) dengan IP publik
+- Atur Security Group: SSH (22), HTTP (80), MySQL (3306)
+- Buat RDS MySQL (Free Tier, tanpa backup)
+- SSH ke EC2 dan connect ke database RDS
+
+---
+
+## 🛠️ Tools
+
+- Amazon EC2 (Ubuntu)
+- Amazon RDS (MySQL)
+- VPC & Subnet
+- Security Group
+
+---
+
+## 🚀 Langkah Singkat
+
+1. **Buat VPC**
+   - CIDR: `10.0.0.0/16`
+   - Tambahkan 1 public subnet (contoh: `10.0.1.0/24`)
+   - Attach Internet Gateway
+
+2. **Launch EC2**
+   - Gunakan AMI Ubuntu
+   - Enable Auto-assign Public IP
+   - Security Group: buka SSH, HTTP, dan MySQL
+
+3. **Buat RDS**
+   - Pilih MySQL
+   - Aktifkan Free Tier
+   - Nonaktifkan backup
+   - Jangan aktifkan public access
+
+4. **SSH ke EC2**
+   ```bash
+   ssh -i your-key.pem ubuntu@public-ip
 
 
  Instalation Package APT
